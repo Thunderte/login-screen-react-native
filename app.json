@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Android_App_Habbo",
+    "slug": "Android_App_Habbo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
