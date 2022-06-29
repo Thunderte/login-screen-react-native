@@ -1,48 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
-export default function App(){
-const [user, Setuser] = useState('');
-const [password, Setpassword] = useState('');
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import Login from './screens/Login';
+import Home from './screens/Home';
 
+const Stack = createStackNavigator();
 
-
-
+function MyStack() {
     return (
-    <View style={styles.container}>
-        <StatusBar hidden />
-        <Image source={require('./assets/logo.png')} />
-        <Text style={{textAlign: 'center', color: 'white', marginBottom: 10, fontWeight: 'bold', height: 30,}}>Login</Text>
-        <TextInput placeholder="Username..." style={styles.Textinput} onChageText={text=>Setuser(text)}/>
-        <TextInput secureTextEntry={true} placeholder="Password..." style={styles.Textinput} onChageText={text=>Setpassword(text)}/>
-        <TouchableOpacity style={styles.buttonlogin} onPress={()=>login()}>
-            <Text style={{color: 'white', textAlign: 'center',}}>Logar</Text>
-        </TouchableOpacity>
-    </View>
-);
+        <Stack.Navigator>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+    );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0f0e0e',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-        },
-    Textinput: {
-      width: '80%',
-      height: 40,
-      backgroundColor: 'white',
-      borderRadius: 40,
-      paddingLeft: 20,
-      marginBottom: 10,
-    },
-    buttonlogin: {
-        width: '80%',
-        height: 40,
-        backgroundColor: '#6e3dff',
-        borderRadius: 20,
-        justifyContent: 'center',
-    },
-});
+export default function App() {
+    return (
+        <NavigationContainer>
+            <MyStack />
+        </NavigationContainer>
+    );
+}
+
