@@ -14,7 +14,7 @@ export default function Home(){
     return (
         <WebView
             source={{
-                uri: 'http://lella.la/me'
+                uri: ''
             }}/>
 
 )
